@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "694942808385",
+    "firebase_url": "https://care-pushserver.firebaseio.com",
+    "project_id": "care-pushserver",
+    "storage_bucket": "care-pushserver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694942808385:android:2e0521f245859734",
+        "android_client_info": {
+          "package_name": "care.skuniv.ac.kr.care"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "694942808385-brlbbhu7fhab45r2iag1vjoc4tnq4c2s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwkxp6m9BNkhJhIbT-qYrZxJCOHPHJJ9E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+          "mobilesdk_app_id": "1:694942808385:android:497adf2b9520e84e",
+          "android_client_info": {
+            "package_name": "care.skuniv.ac.kr.careparent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "694942808385-brlbbhu7fhab45r2iag1vjoc4tnq4c2s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwkxp6m9BNkhJhIbT-qYrZxJCOHPHJJ9E"
+        }
+      ],
+    "services": {
+      "analytics_service": {
+        "status": 1
+      },
+      "appinvite_service": {
+        "status": 1,
+        "other_platform_oauth_client": []
+      },
+      "ads_service": {
+        "status": 2
+      }
+    }
+    }
+  ],
+  "configuration_version": "1"
+}

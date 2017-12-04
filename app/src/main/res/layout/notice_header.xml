@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_notice"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:background="#4a86c6"
+            android:textColor="#ffffff"
+            android:text="번호"/>
+
+        <Button
+            android:id="@+id/btn_student"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="#4a86c6"
+            android:textColor="#ffffff"
+            android:text="날짜"
+            />
+
+        <Button
+            android:id="@+id/btn_setting"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#4a86c6"
+            android:textColor="#ffffff"
+            android:text="제목"
+            />
+        <Button
+            android:id="@+id/btn_check"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            android:background="#4a86c6"
+            android:textColor="#ffffff"
+            android:text="보기"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
