@@ -1,5 +1,8 @@
 package care.skuniv.ac.kr.careparent;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 /**
  * Created by 김주현 on 2017-11-20.
  */
@@ -29,6 +32,11 @@ public class InfoSign {
 
     public void setStd_name(String std_name) {
         this.std_name = std_name;
+        try {
+            this.std_name = URLEncoder.encode(this.std_name,"UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
     public String getGrade() {

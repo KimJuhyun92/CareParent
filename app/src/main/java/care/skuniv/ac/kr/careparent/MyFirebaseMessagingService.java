@@ -27,24 +27,23 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService
         Log.d("checkmsg", "From: " + remoteMessage.getFrom());
 
         if (remoteMessage.getData().size() > 0) {
-            String msg = remoteMessage.getData().get("msg");
+            String msg = remoteMessage.getData().get("message");
             try {
                 msg = URLDecoder.decode(msg, "UTF-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
-            Log.d("<<<<<<<<msgmsg>>>>>>>", msg);
+            Log.d("<<<<<<<<msgmsg1>>>>>>>", msg);
             sendNotification(msg);
         }
         if (remoteMessage.getNotification() != null) {
             String nMessage = remoteMessage.getNotification().getBody();
-            Log.d("<<<<<<<<11111111>>>>>>>", nMessage);
             try {
                 nMessage = URLDecoder.decode(nMessage, "UTF-8");
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
-            Log.d("<<<<<<<<2222222>>>>>>>", nMessage);
+            Log.d("<<<<<<<<msgmsg2>>>>>>>", nMessage);
             sendNotification(nMessage);
         }
     }
@@ -58,7 +57,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService
         Uri defaultSoundUri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Metor Academy")
+                .setContentTitle("Mentor Academy")
                 .setContentText(messageBody)
                 .setAutoCancel(true)
                 .setSound(defaultSoundUri)

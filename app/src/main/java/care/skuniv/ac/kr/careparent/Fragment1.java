@@ -15,7 +15,9 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -44,15 +46,25 @@ public class Fragment1 extends Fragment {
         //헤더 연결
         View header = inflater.inflate(R.layout.notice_header, null, false);
         listview.addHeaderView(header);
+
         //db add
-        ServerConn serverConn = new ServerConn("http://"+URLPath.cafe+":8080/CareServer/getNoticeList", 1);
+        ServerConn serverConn = new ServerConn("http://"+URLPath.url+":8080/CareServer/getNoticeList", 1);
         try {
             String result = serverConn.execute().get();
             Log.d("connect",result);
             Gson gson = new GsonBuilder().disableHtmlEscaping().create();
             InfoNotice[] infoNotices = gson.fromJson(result, InfoNotice[].class);
-
             for (InfoNotice infoNotice : infoNotices) {
+                try {
+                    String title = infoNotice.getNotice_title();
+                    title = URLDecoder.decode(title, "UTF-8");
+                    infoNotice.setNotice_title(title);
+                    String content = infoNotice.getNotice_content();
+                    content = URLDecoder.decode(content, "UTF-8");
+                    infoNotice.setNotice_content(content);
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
                 adapter.add(infoNotice);
             }
         } catch (InterruptedException e) {

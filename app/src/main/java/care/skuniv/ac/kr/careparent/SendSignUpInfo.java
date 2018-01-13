@@ -38,7 +38,7 @@ public class SendSignUpInfo extends AsyncTask<Void,Void,String>{
         requestBody = new FormBody.Builder().add("signUpInfo",toJsonForInfoSign(infoSignArrayList)).add("token",token).build();
 
         Request request = new Request.Builder()
-                .url("http://117.17.142.132:8080/CareServer/getSignUpInfo")
+                .url("http://"+URLPath.url+":8080/CareServer/getSignUpInfo")
                 .post(requestBody)
                 .build();
         try {

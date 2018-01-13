@@ -16,20 +16,24 @@ import okhttp3.Response;
  */
 
 
-public class ServerConn extends AsyncTask<Void, Void, String> {
+public class ServerLogin extends AsyncTask<Void, Void, String> {
     String answer;
     String url;
-    String std_no;
     int type;
+    String parent_id;
+    String parent_pw;
 
-    ServerConn(String url,  int type) {
+
+    ServerLogin(String url, String parent_id, int type) {
         this.url = url;
+        this.parent_id = parent_id;
         this.type = type;
     }
 
-    ServerConn(String url, String std_no, int type) {
+    ServerLogin(String url, String parent_id, String parent_pw, int type) {
         this.url = url;
-        this.std_no = std_no;
+        this.parent_id = parent_id;
+        this.parent_pw = parent_pw;
         this.type = type;
     }
 
@@ -40,22 +44,20 @@ public class ServerConn extends AsyncTask<Void, Void, String> {
         OkHttpClient client = new OkHttpClient();
         Response response;
         RequestBody requestBody = null;
-        switch (type) {
+
+        switch (type){
             case 1:
-                requestBody = selectStudentList(requestBody);
+                requestBody = new FormBody.Builder().add("parent_id",parent_id).build();
                 break;
             case 2:
-                requestBody = new FormBody.Builder().add("message","YOUR CHILDREN ATTEND").build();
-                break;
-            case 3 :
-                requestBody = new FormBody.Builder().add("student_id",std_no).build();
+                requestBody = new FormBody.Builder().add("parent_id",parent_id).add("parent_pw",parent_pw).build();
                 break;
         }
-
         Request request = new Request.Builder()
                 .url(url)
                 .post(requestBody)
                 .build();
+
         try {
             response = client.newCall(request).execute();
             /////////////////////////////////// newcall 하고 응답받기를 기다리는중
