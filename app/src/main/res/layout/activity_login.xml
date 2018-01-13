@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_height ="160dp"
+        android:layout_width="150dp"
+        android:src="@drawable/logo"
+        android:layout_marginTop="45dp"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/editText_id"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="60dp"
+        android:paddingLeft="200px"
+        android:textColor="#FFFFFF"
+        android:ems="10"
+        android:text=""
+        android:background="@drawable/login_id"
+        android:layout_below="@+id/imageView"
+        android:layout_alignLeft="@+id/editText_password"
+        android:layout_alignStart="@+id/editText_password" />
+
+    <EditText
+        android:id="@+id/editText_password"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="200px"
+        android:textColor="#FFFFFF"
+        android:ems="10"
+        android:text=""
+        android:background="@drawable/login_pw"
+        android:layout_below="@+id/editText_id"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:text=""
+        android:background="@drawable/login_enter"
+        android:layout_below="@+id/editText_password"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/button_signUp"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="13dp"
+        android:text=""
+        android:background="@drawable/signup"
+        android:layout_below="@+id/button_login"
+        android:layout_alignLeft="@+id/button_login"
+        android:layout_alignStart="@+id/button_login" />
+
+
+</RelativeLayout>

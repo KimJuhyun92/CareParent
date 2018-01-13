@@ -34,7 +34,6 @@ public class CalendarAdapter extends BaseAdapter {
         this.list = list;
         this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
-
     public class ViewHolder {
         TextView tvItemGridView;
         ImageView state;
@@ -68,6 +67,7 @@ public class CalendarAdapter extends BaseAdapter {
         }
         InfoAttendance infoAttendance = getItem(position);
         holder.tvItemGridView.setText("" + infoAttendance.getDate());
+
         switch (infoAttendance.getAtt_state()) {
             case 0 :
                 holder.state.setVisibility(View.INVISIBLE);
@@ -83,7 +83,6 @@ public class CalendarAdapter extends BaseAdapter {
                 break;
             default: break;
         }
-        //holder.tvItemGridView.setBackgroundColor(Color.BLUE);
         //해당 날짜 텍스트 컬러,배경 변경
         mCalendar = Calendar.getInstance();
 
@@ -93,9 +92,6 @@ public class CalendarAdapter extends BaseAdapter {
         if (sToday.equals(getItem(position))) { //오늘 day 텍스트 컬러 변경
             holder.tvItemGridView.setTextColor(convertView.getResources().getColor(R.color.colorPrimary));
         }
-
-
-
         return convertView;
     }
 }

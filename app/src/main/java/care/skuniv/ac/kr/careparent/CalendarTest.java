@@ -103,7 +103,7 @@ public class CalendarTest extends Activity {
     private void setCalendarDate(int month) {
         mCalendar.set(Calendar.MONTH, month - 1);
         // get data
-        ServerConn serverConn = new ServerConn("http://" + URLPath.url + ":8080/CareServer/getAttList", 3);
+        ServerConn serverConn = new ServerConn("http://" + URLPath.home + ":8080/CareServer/getAttList", "10",3);
         String result = "";
         try {
             result = serverConn.execute().get();
@@ -118,7 +118,6 @@ public class CalendarTest extends Activity {
 
         int searchIndex = 0;
 
-        // int stateArr[] = {1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,3, 1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,3};
         for (int i = 0; i < mCalendar.getActualMaximum(Calendar.DAY_OF_MONTH); i++) {
             boolean state = false;
             for (int j = searchIndex; j < infoAttendances.length; j++) {

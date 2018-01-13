@@ -40,7 +40,6 @@ public class PushMessage extends AsyncTask<Void, Void, String> {
     @Override
     protected String doInBackground(Void... params) {
 
-        //request 를 보내줄 클라이언트 생성   (okhttp 라이브러리 사용)
         OkHttpClient client = new OkHttpClient();
         Response response;
         RequestBody requestBody = null;
@@ -52,7 +51,6 @@ public class PushMessage extends AsyncTask<Void, Void, String> {
                 .build();
         try {
             response = client.newCall(request).execute();
-            /////////////////////////////////// newcall 하고 응답받기를 기다리는중
             answer = response.body().string();
 
         } catch (IOException e) {

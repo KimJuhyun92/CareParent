@@ -1,5 +1,6 @@
 package care.skuniv.ac.kr.careparent;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,7 +13,6 @@ import com.google.firebase.iid.FirebaseInstanceId;
 public class SignUp extends AppCompatActivity {
     private EditText id, pw, std_name, grade, parent_hp;
     private Button signUp , cancel;
-    private String getId, getPw, getStd_name, getGrade, getParent_hp;
     private InfoSign infoSignUp;
 
     @Override
@@ -26,7 +26,6 @@ public class SignUp extends AppCompatActivity {
         parent_hp = (EditText)findViewById(R.id.edit_hp);
         signUp = (Button)findViewById(R.id.btn_sign);
         cancel = (Button)findViewById(R.id.btn_cancel);
-        Log.d("test", "<<<<<<<<<<<<test>>>>>>>>>>>>>>>>>");
 
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,20 +41,18 @@ public class SignUp extends AppCompatActivity {
 
                 SendSignUpInfo sendSignUpInfo = new SendSignUpInfo(infoSignUp);
                 sendSignUpInfo.execute();
-
-
+                Intent intent = new Intent (SignUp.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String refreshedToken = FirebaseInstanceId.getInstance().getToken();
-                Log.d("token",refreshedToken);
-//                String msg ="hihihihi";
-//                PushMessage sendMessage = new PushMessage("http://117.17.142.132:8080/CareServer/pushMessage",msg);
-//                sendMessage.execute();
-//                Log.d("message" ,""+ msg);
-            }
+//                String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+//                Log.d("token",refreshedToken);
+                finish();
+        }
         });
     }
 }
